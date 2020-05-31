@@ -6,11 +6,12 @@
     @include('layouts.partials.head')
     @yield('navbar')
     @yield('head')
+
+
 </head>
 <style>
-    .card-body:hover { transform: scale(1.05); }
-    .card-body { transition: all .2s ease-in-out; }
-
+    .move:hover { transform: scale(1.05); }
+    .move { transition: all .2s ease-in-out; }
 </style>
 <body>
 @include('layouts.partials.navbar')
@@ -31,7 +32,12 @@
 <script src="/ib/lightbox/js/lightbox.min.js"></script>
 <script src="/contactform/contactform.js"></script>
 <script src="/js/main.js"></script>
-
+<script src="/js/select2.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.select').select2();
+    });
+</script>
 @yield('footer')
 
 </body>

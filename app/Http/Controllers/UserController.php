@@ -17,7 +17,6 @@ class UserController extends Controller
 
     public function register(Request $request)
     {
-
         $email = $request->email;
         if (strpos($email, '@posta.pau.edu.tr') === false)
         {
@@ -33,10 +32,10 @@ class UserController extends Controller
         ]);
 
         $kullanici = User::create([
-            'name' => request('name') ,
-            'surname'=>request('surname'),
-            'email' => request('email'),
-            'password' => Hash::make(request('password')),
+            'name' => $request->name ,
+            'surname' =>$request->surname,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
         ]);
 
         auth()->login($kullanici);

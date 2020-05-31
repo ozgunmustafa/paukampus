@@ -310,7 +310,7 @@ h6 {
   position: relative;
   background: url("../img/intro-bg.png") center bottom no-repeat;
   background-size: cover;
-  padding: 200px 0 120px 0;
+  padding: 120px 0 120px 0;
 }
 
 #intro .intro-img {
@@ -876,7 +876,7 @@ h6 {
 --------------------------------*/
 
 #portfolio {
-  padding: 60px 0;
+  padding: 10px 0;
   box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.1);
 }
 
@@ -1566,6 +1566,6 @@ h6 {
 
 @media (max-width: 574px) {
   #intro {
-    padding: 100px 0 20px 0;
+    padding: 60px 0 20px 0;
   }
 }

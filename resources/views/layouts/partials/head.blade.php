@@ -7,9 +7,9 @@
 <link href="/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link href="/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 <link href="/lib/animate/animate.min.css" rel="stylesheet">
-<link href="/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
 <link href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 <link href="/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
 <link href="/css/style.css" rel="stylesheet">
+<link href="/css/select2.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />

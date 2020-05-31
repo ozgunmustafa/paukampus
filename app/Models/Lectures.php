@@ -10,7 +10,7 @@ class Lectures extends Model
     protected $guarded =[];
 
     public function notes(){
-        return $this->belongsToMany('App\Models\Notes', 'lectures_notes','lecture_id','note_id');
+        return $this->hasMany('App\Models\Notes', 'lecture_id');
     }
 
     public function departments(){

@@ -6,21 +6,24 @@
 //});
 
 Route::get('/deneme', function (){
-    return view('department-lectures');
+    return view('create-note');
 });
 Route::get('/', 'AnasayfaController@index')->name('anasayfa');
 Route::get('/kayit-ol', 'UserController@registerView')->name('registerView');
 Route::post('/kayit-ol', 'UserController@register')->name('register');
 Route::get('/giris-yap', 'UserController@loginView')->name('loginView');
 Route::post('/giris-yap','UserController@login')->name('login');
+
+Route::get('/not-olustur','NoteController@createNoteView')->name('createNoteView');
+Route::post('/not-olustur','NoteController@createNote')->name('createNote');
 //Route::get('/sepet', 'SepetController@index')->name('sepet');
 
 Route::get('/ders-notlari', 'FacultyController@showFaculties')->name('showFaculties');
 
 
 Route::get('/fakulte/{fakulte_adi}', 'FacultyController@showFacultyDepartments')->name('showFacultyDepartments');
-Route::get('/bolum/{bolum_adi}', 'DepartmentController@showDepartmentLectures')->name('showDepartmentLectures');
-Route::get('/ders/{ders_adi}', 'LectureController@showLectureNotes')->name('showLecturesNotes');
+Route::get('/b/{bolum_adi}', 'DepartmentController@showDepartmentLectures')->name('showDepartmentLectures');
+Route::get('/b/{bolum_adi}/{ders_adi}', 'LectureController@showLectureNotes')->name('showLecturesNotes');
 
 
 

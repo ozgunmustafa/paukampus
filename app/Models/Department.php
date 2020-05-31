@@ -15,7 +15,7 @@ class Department extends Model
     }
     public function lectures()
     {
-        return $this->belongsToMany('App\Models\Lectures', 'lecture_departments','lecture_id','department_id');
+        return $this->belongsToMany('App\Models\Lectures', 'lecture_departments','department_id','lecture_id');
     }
 
 }

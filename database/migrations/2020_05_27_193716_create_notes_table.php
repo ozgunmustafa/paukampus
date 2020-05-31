@@ -18,14 +18,21 @@ class CreateNotesTable extends Migration
             $table->string('title',200);
             $table->string('description',200);
             $table->decimal('price',6,3);
+
+            $table->unsignedBigInteger('file_id');
             $table->unsignedBigInteger('teacher_id');
             $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('lecture_id');
+            $table->unsignedBigInteger('department_id');
             $table->timestamps();
 
 
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('no action');
             $table->foreign('teacher_id')->references('id')->on('teachers')->onDelete('no action');
+            $table->foreign('lecture_id')->references('id')->on('lectures')->onDelete('no action');
+            $table->foreign('department_id')->references('id')->on('departments')->onDelete('no action');
+            $table->foreign('file_id')->references('id')->on('files')->onDelete('no action');
 
         });
     }

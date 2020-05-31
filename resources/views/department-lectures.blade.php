@@ -12,10 +12,10 @@
 
                 @forelse($lectures as $lecture)
                     <div class="col-md-3 my-2 text-center">
-                        <a href="{{route('showLecturesNotes',$lecture->slug)}}">
+                        <a href="{{route('showLecturesNotes',[$department->slug,$lecture->slug])}}">
                             <div class="card">
                                 <div>
-                                    <div class="card-body  wow fadeInUp shadow m-2" id="cad">
+                                    <div class="card-body move wow fadeInUp shadow m-2" id="cad">
                                         <small class="py-5"><b>{{$lecture->name}}</b></small>
                                     </div>
                                 </div>
@@ -25,7 +25,7 @@
                     </div>
                 @empty
                     <div class="col-md-12">
-                        <div class="card">
+                        <div class="card ">
                             <div>
                                 <div class="p-3 shadow m-2" id="cad">
                                     <small class="py-5"><b>{{ $department->name }} bölümünde herhangi bir ders bulunmuyor</b></small>

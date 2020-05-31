@@ -55,25 +55,38 @@
             <hr class="bg-white">
             <div class="tab-content" id="pills-tabContent">
                 <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-
-
                     <section id="portfolio" class="clearfix">
                         <div class="container">
                             <div class="row portfolio-container">
                                 @forelse($notes as $note)
 
-                                    <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                                        <div class="portfolio-wrap">
-                                            <img src="/img/portfolio/app1.jpg" class="img-fluid" alt="">
-                                            <div class="portfolio-info">
-                                                <h4><a href="#">{{$note->title}}</a></h4>
-                                                <p>{{$note->title}}</p>
-                                                <div>
-                                                    <a href="/img/portfolio/app1.jpg" data-gall="portfolioGallery"
-                                                       title="App 1" class="venobox link-preview"><i
-                                                            class="ion ion-eye"></i></a>
-                                                    <a href="#" class="link-details" title="More Details"><i
-                                                            class="ion ion-android-open"></i></a>
+                                    <div class="col-lg-3 col-md-4  portfolio-item filter-app">
+                                        <div class="card" >
+                                            <div class="card-body move" style="padding: 0.50em!important;">
+                                                <div class="portfolio-wrap" >
+                                                    <img src="/img/portfolio/app1.jpg" class="img-fluid"  alt="">
+                                                    <div class="portfolio-info">
+                                                        <div>
+                                                            <a href="/img/portfolio/app1.jpg" data-gall="portfolioGallery"
+                                                               title="App 1" class="venobox link-preview"><i class="fas fa-eye"></i></a>
+                                                            <a href="#" class="link-details" title="More Details"><i class="fas fa-lira-sign"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="card-header" style="padding: 0.02rem 1.25rem!important;">
+                                                <div class="media text-muted pt-3">
+                                                    <p class="media-body pb-3 mb-0 small lh-125  border-gray">
+
+                                                        <strong class="d-block text-gray-dark">{{$note->title}}</strong>
+                                                        <strong class="d-block text-gray-dark">{{$note->price}}₺ </strong>
+                                                        <label>{{$note->description}}</label>
+                                                        <small class="d-block mb-3"><strong>yükleyen:</strong> <a href="">{{$note->user->name}}</a> </small>
+
+                                                        <a href="/img/portfolio/app1.jpg" style="font-size: 13px;" class="btn btn-primary"><i class="fas fa-shopping-bag"></i> Satın Al</a>
+                                                        <a href="/img/portfolio/app1.jpg" style="font-size: 13px;" class="btn btn-primary"><i class="fas fa-eye"></i> Önizleme</a>
+                                                    </p>
                                                 </div>
                                             </div>
                                         </div>
@@ -95,14 +108,16 @@
 
                                 @endforelse
                             </div>
-
                         </div>
-                    </section><!-- End Portfolio Section -->
-
-
+                    </section>
                 </div>
+
+
                 <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                    qweqwe
+                    <h1>asdads</h1>
+                    <h1>asdads</h1>
+                    <h1>asdads</h1>
+                    <h1>asdads</h1>
                 </div>
             </div>
         </div>

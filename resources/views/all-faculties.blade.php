@@ -13,9 +13,9 @@
 
                 <div class="col-md-6 my-2 text-center">
                     <a href="{{route('showFacultyDepartments',$faculty->slug)}}">
-                        <div class="card">
+                        <div class="card ">
                             <div>
-                                <div class="card-body wow fadeInUp shadow m-3" data-wow-delay="0.8s" >
+                                <div class="card-body move wow fadeInUp shadow m-3" data-wow-delay="0.8s" >
                                     <h5 class="py-5">{{$faculty->name}}</h5>
                                 </div>
                             </div>

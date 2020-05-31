@@ -30,7 +30,7 @@
                     <div class="col-lg-6 content order-lg-1 order-2">
 
                         <h5>Hoşgeldin {{Auth::user()->name}} , Ne Yapmak İstiyorsun?</h5>
-                        <p>Paü Kampüs Pamukkale Üniversitesi öğrencileri için geliştirilmiş, öğrencilerin ders notlarını
+                        <p class="text-muted">Paü Kampüs Pamukkale Üniversitesi öğrencileri için geliştirilmiş, öğrencilerin ders notlarını
                             ve
                             2.el kitaplarını paylaşmasına ve diğer öğrenciler tarafından bu ders notlarına ve kitaplara
                             kolayca erişim sağlanması amacıyla hazırlanmış bir web sitesidir. </p>
@@ -44,7 +44,7 @@
                             </a>
                         </div>
                         <div class="icon-box wow fadeInUp">
-                            <a href="{{route('showFaculties')}}">
+                            <a href="{{route('createNote')}}">
                                 <div class="icon"><i class="fa fa-pen"></i></div>
                                 <h4 class="title">Ders Notu veya Kitap Ekle</h4>
                                 <p class="description text-muted">Paü Kampüs ile en son paylaşılan ders notlarına buraya
