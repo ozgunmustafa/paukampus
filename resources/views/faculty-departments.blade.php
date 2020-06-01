@@ -15,7 +15,7 @@
                         <a href="{{route('showDepartmentLectures',$department->slug)}}">
                             <div class="card ">
                                 <div>
-                                    <div class="card-body move wow fadeInUp shadow m-3">
+                                    <div class="card-body move  shadow m-3" data-wow-delay="0.05s">
                                         <h6 class="py-5"> <b>{{$department->name}}</b> </h6>
                                     </div>
                                 </div>

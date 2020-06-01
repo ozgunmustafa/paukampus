@@ -2,39 +2,39 @@
 @section('title', $lecture->name. ' Bölümü Ders Notları')
 @section('content')
 
-{{--    <style>--}}
-{{--        .box{--}}
-{{--            position: relative;--}}
-{{--            display: inline-block;--}}
-{{--            transition: all .2s ease-in-out;/* Make the width of box same as image */--}}
-{{--        }--}}
-{{--        .box:hover .text {--}}
-{{--            opacity: 1;--}}
-{{--        }--}}
-{{--        .box .text{--}}
-{{--            transition: all .2s ease-in-out;--}}
-{{--            border-radius: 6px;--}}
-{{--            position: absolute;--}}
-{{--            z-index: 999;--}}
-{{--            margin: 0 auto;--}}
-{{--            left: 0;--}}
-{{--            right: 0;--}}
-{{--            text-align: center;--}}
-{{--            bottom: 0%; /* Adjust this value to move the positioned div up and down */--}}
-{{--            background: rgba(0, 0, 0, 0.8);--}}
-{{--            font-family: Arial,sans-serif;--}}
-{{--            color: #fff;--}}
-{{--            width: 40%; /* Set the width of the positioned div */--}}
-{{--        }--}}
+    {{--    <style>--}}
+    {{--        .box{--}}
+    {{--            position: relative;--}}
+    {{--            display: inline-block;--}}
+    {{--            transition: all .2s ease-in-out;/* Make the width of box same as image */--}}
+    {{--        }--}}
+    {{--        .box:hover .text {--}}
+    {{--            opacity: 1;--}}
+    {{--        }--}}
+    {{--        .box .text{--}}
+    {{--            transition: all .2s ease-in-out;--}}
+    {{--            border-radius: 6px;--}}
+    {{--            position: absolute;--}}
+    {{--            z-index: 999;--}}
+    {{--            margin: 0 auto;--}}
+    {{--            left: 0;--}}
+    {{--            right: 0;--}}
+    {{--            text-align: center;--}}
+    {{--            bottom: 0%; /* Adjust this value to move the positioned div up and down */--}}
+    {{--            background: rgba(0, 0, 0, 0.8);--}}
+    {{--            font-family: Arial,sans-serif;--}}
+    {{--            color: #fff;--}}
+    {{--            width: 40%; /* Set the width of the positioned div */--}}
+    {{--        }--}}
 
-{{--    </style>--}}
+    {{--    </style>--}}
 
-{{--    <div class="box">--}}
-{{--        <img src="/img/portfolio/app1.jpg" alt="Flying Kites">--}}
-{{--        <div class="text">--}}
-{{--            <h1>Flying Kites</h1>--}}
-{{--        </div>--}}
-{{--    </div>--}}
+    {{--    <div class="box">--}}
+    {{--        <img src="/img/portfolio/app1.jpg" alt="Flying Kites">--}}
+    {{--        <div class="text">--}}
+    {{--            <h1>Flying Kites</h1>--}}
+    {{--        </div>--}}
+    {{--    </div>--}}
     <section id="intro" class="clearfix mb-2">
 
 
@@ -61,15 +61,18 @@
                                 @forelse($notes as $note)
 
                                     <div class="col-lg-3 col-md-4  portfolio-item filter-app">
-                                        <div class="card" >
-                                            <div class="card-body move" style="padding: 0.50em!important;">
-                                                <div class="portfolio-wrap" >
-                                                    <img src="/img/portfolio/app1.jpg" class="img-fluid"  alt="">
+                                        <div class="card">
+                                            <div class="card-body move pb-0" style="padding: 0.50em!important;">
+                                                <div class="portfolio-wrap">
+                                                    <img style="height: 200px" src="/upload/notes/{{ $note->files[0]->path }}" class="img-fluid" alt="">
                                                     <div class="portfolio-info">
                                                         <div>
-                                                            <a href="/img/portfolio/app1.jpg" data-gall="portfolioGallery"
-                                                               title="App 1" class="venobox link-preview"><i class="fas fa-eye"></i></a>
-                                                            <a href="#" class="link-details" title="More Details"><i class="fas fa-lira-sign"></i></a>
+                                                            <a href="/upload/notes/{{ $note->files[0]->path }}"
+                                                               data-gall="portfolioGallery"
+                                                               title="Önizleme" class="venobox link-preview"><i
+                                                                    class="fas fa-eye"></i></a>
+                                                            <a href="#" class="link-details" title="More Details"><i
+                                                                    class="fas fa-lira-sign"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -77,26 +80,42 @@
 
                                             <div class="card-header" style="padding: 0.02rem 1.25rem!important;">
                                                 <div class="media text-muted pt-3">
-                                                    <p class="media-body pb-3 mb-0 small lh-125  border-gray">
+                                                    <form action="{{route('payCost')}}" method="post" >
+                                                        @csrf
+                                                        <p class="media-body pb-3 mb-0 small lh-125  border-gray">
+                                                            <strong
+                                                                class="d-block text-gray-dark">{{$note->title}}</strong>
+                                                            <input type="text" name="noteTitle" hidden value="{{$note->title}}">
+                                                            <strong class="d-block text-gray-dark">{{$note->price}}
+                                                                ₺ </strong>
+                                                            <input type="text" name="notePrice" hidden value="{{$note->price}}">
+                                                            <input type="text" name="noteId" hidden value="{{$note->id}}">
 
-                                                        <strong class="d-block text-gray-dark">{{$note->title}}</strong>
-                                                        <strong class="d-block text-gray-dark">{{$note->price}}₺ </strong>
-                                                        <label>{{$note->description}}</label>
-                                                        <small class="d-block mb-3"><strong>yükleyen:</strong> <a href="">{{$note->user->name}}</a> </small>
+                                                            <label>{{$note->description}}</label>
+                                                            <small class="d-block mb-3"><strong>yükleyen:</strong> <a
+                                                                    href="">{{$note->user->name}}</a> </small>
 
-                                                        <a href="/img/portfolio/app1.jpg" style="font-size: 13px;" class="btn btn-primary"><i class="fas fa-shopping-bag"></i> Satın Al</a>
-                                                        <a href="/img/portfolio/app1.jpg" style="font-size: 13px;" class="btn btn-primary"><i class="fas fa-eye"></i> Önizleme</a>
-                                                    </p>
+                                                            <button type="submit" style="font-size: 13px;"
+                                                                    class="btn btn-primary"><i
+                                                                    class="fas fa-shopping-bag"></i> Satın Al
+                                                            </button>
+                                                            <a href="/upload/notes/{{ $note->files[0]->path }}" style="font-size: 13px;"
+                                                               class="btn btn-primary"><i class="fas fa-eye"></i>
+                                                                Önizleme</a>
+                                                        </p>
+                                                    </form>
+
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    @empty
+                                @empty
                                     <div class="col-md-12">
                                         <div class="card">
                                             <div>
                                                 <div class="p-3 shadow m-2" id="cad">
-                                                    <small class="py-5"><b>{{ $lecture->name }} bölümünde herhangi bir ders
+                                                    <small class="py-5"><b>{{ $lecture->name }} bölümünde herhangi bir
+                                                            ders
                                                             bulunmuyor</b></small>
                                                     <small class="py-5">
                                                         <a href="{{route('anasayfa')}}">Anasayfaya dön</a>

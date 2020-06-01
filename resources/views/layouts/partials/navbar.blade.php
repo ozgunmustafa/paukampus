@@ -23,7 +23,10 @@
                             <a class="dropdown-item" href="">Profil</a>
                             <a class="dropdown-item" href="#">Hesap</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Çıkış Yap</a>
+                            <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('oturumukapat-form').submit()">Çıkış Yap</a>
+                            <form id="oturumukapat-form" action="{{route('logout')}}" method="post" style="display:none;">
+                                {{csrf_field()}}
+                            </form>
                         </div>
                     </li>
                 @endauth

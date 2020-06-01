@@ -13,17 +13,51 @@
                             </div>
                             <div class="card-body">
                                 <div class="col-md-12 order-md-1">
-                                    <form action="{{route('createNote')}}" method="post" class="needs-validation" enctype="multipart/form-data">
+                                    @include('partials.alert')
+                                    <form action="{{route('createNote')}}" method="post" class="needs-validation"  enctype="multipart/form-data">
                                         @csrf
-                                        <label for="files" class="btn btn-info btn-xs p-0 px-3 py-2 my-1">
+                                        <label for="files" class="btn btn-info btn-block py-5 btn-xs p-0 px-3 py-2 my-1">
                                             <i class="fas fa-paperclip"></i> Dosya Seç
                                         </label>
                                         <input id="files" style="visibility:hidden;" type="file" name="noteFile">
 
+{{--                                        <style>--}}
+{{--                                            #text{--}}
+{{--                                                width: 100%;--}}
+{{--                                                height: 100%;--}}
+{{--                                                text-align: center;--}}
+{{--                                                line-height: 170px;--}}
+{{--                                                color: #252525;--}}
+{{--                                                font-family: Arial;--}}
+{{--                                            }--}}
+{{--                                            #upload{--}}
+{{--                                                position: absolute;--}}
+{{--                                                margin: 0;--}}
+{{--                                                padding: 0;--}}
+{{--                                                width: 100%;--}}
+{{--                                                height: 100%;--}}
+{{--                                                outline: none;--}}
+{{--                                                opacity: 0;--}}
+{{--                                            }--}}
+{{--                                        </style>--}}
+
+{{--                                        <div class="shadow bg-light" style="border-radius: 7px; border: 4px solid white">--}}
+{{--                                            <input type="file"  multiple id="upload" name="noteFiles">--}}
+{{--                                            <p id="text">Ders Notu Seçin</p>--}}
+{{--                                        </div>--}}
+{{--                                        <br>--}}
+{{--                                        <script>--}}
+{{--                                            let upload =document.querySelector('#upload');--}}
+{{--                                            window.addEventListener('DOMContentLoaded', (event) => {--}}
+{{--                                                upload.addEventListener("change",function () {--}}
+{{--                                                    $('#text').text(this.files.length + " Dosya Seçildi.");--}}
+{{--                                                });--}}
+{{--                                            });--}}
+{{--                                        </script>--}}
+
                                         <input type="number" name="user_id"  hidden value="{{Auth::user()->id}}">
 
                                         <div class="row">
-
                                             <div class="col-md-6 mb-3">
                                                 <label for="state">Bölüm </label>
                                                 <select name="department_id" class="form-control select" required>

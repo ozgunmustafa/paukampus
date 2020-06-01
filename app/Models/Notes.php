@@ -17,4 +17,8 @@ class Notes extends Model
         return $this->belongsTo('App\User', 'user_id');
     }
 
+    public function files(){
+        return $this->hasMany('App\Models\Files','note_id');
+    }
+
 }

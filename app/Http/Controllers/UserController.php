@@ -63,7 +63,13 @@ class UserController extends Controller
         }
 
     }
-
+    public function logout()
+    {
+        auth()->logout();
+        request()->session()->flush();
+        request()->session()->regenerate();
+        return redirect()->route('anasayfa');
+    }
 
 
 

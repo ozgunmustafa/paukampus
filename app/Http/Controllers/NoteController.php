@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Department;
 use App\Models\Faculty;
+use App\Models\Files;
 use App\Models\Lectures;
 use App\Models\Notes;
 use App\Models\Teachers;
@@ -22,30 +23,37 @@ class NoteController extends Controller
 
     public function createNote(Request $request)
     {
+        /**
+         * @param Request $request
+         * @throws ValidationException
+         */
+        if ($request->hasFile('noteFile')) {
+            $this->validate($request, [
+                'noteFile' => 'required|mimes:pdf,jpg,png,jpeg|max:4096'
+            ]);
+        }
+
         try {
             $note = Notes::create([
-                'title'       => $request->noteTitle,
-                'description' => $request->noteDescription,
-                'price'       => $request->notePrice,
-                'teacher_id'  => $request->teacher_id,
-                'lecture_id'  => $request->lecture_id,
-                'user_id'     => $request->user_id,
-                'department_id'     => $request->department_id,
+                'title'         => $request->noteTitle,
+                'description'   => $request->noteDescription,
+                'price'         => $request->notePrice,
+                'teacher_id'    => $request->teacher_id,
+                'lecture_id'    => $request->lecture_id,
+                'user_id'       => $request->user_id,
+                'department_id' => $request->department_id,
             ]);
+            $note_file = $request->file('noteFile');
+            $fileName =$note->id . "-".time().".".$note_file->extension();
+            if($note_file->isValid()){
+                $note_file->move('upload/notes',$fileName);
+                Files::create([
+                   'path'=>$fileName,
+                   'note_id'=>$note->id
+                ]);
+            }
         } catch (\Exception $e) {
             dd($e);
         }
-
-//
-//
-//        dd($request->all());
-//        if ($request->hasFile('noteFile')) {
-//            $this->validate($request, [
-//                'note_file' => 'image|mimes:pdf|max:4096'
-//            ]);
-//            $note_file = $request->file('noteFile');
-//            $note_file->getClientOriginalName();
-//            $note_file->hashName();
-//        }
     }
 }
